@@ -1,4 +1,4 @@
-﻿@inject Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration TelemetryConfiguration
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
 @{
     ViewData["Title"] = "HealthClinic.biz";
 }
@@ -8,10 +8,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
-    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+    @Html.Raw(JavaScriptSnippet.FullScript)
 
     <environment names="Development">
-        <link rel="stylesheet" href="~/css/public-site.css"/>
+        <link rel="stylesheet" href="~/css/public-site.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="~/css/public-site.min.css" asp-file-version="true" />

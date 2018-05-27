@@ -2,3 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+/.vs
+bin/
+obj/
+/src/MyHealth.Web/node_modules
+*.log

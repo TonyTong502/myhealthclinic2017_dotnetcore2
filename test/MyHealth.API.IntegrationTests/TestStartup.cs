@@ -1,18 +1,16 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MyHealth.API.Infrastructure;
 using MyHealth.API.Validators;
 using MyHealth.Data;
+using MyHealth.Data.Infraestructure;
 using MyHealth.Data.Repositories;
 using MyHealth.Model;
-using Acheve.AspNetCore.TestHost.Security;
-using MyHealth.Data.Infraestructure;
-using Microsoft.EntityFrameworkCore.Infrastructure;
+using System.Threading.Tasks;
 
 namespace MyHealth.API
 {
@@ -64,7 +62,7 @@ namespace MyHealth.API
         {
             databaseInitializer.InitializeDatabaseAsync(app.ApplicationServices).Wait();
 
-            app.UseTestServerAuthentication();
+            app.UseAuthentication();
 
             app.UseExceptionHandler(builder =>
             {
